@@ -1,0 +1,22 @@
+Credentials:
+  type: object
+  properties:
+    username:
+      type: string
+    password:
+      type: string
+
+ValidateBody:
+  type: object
+  properties:
+    jwt:
+      type: string
+
+ValidateResponse:
+  type: object
+  properties:
+    username:
+      type: string
+    expires:
+      type: string
+      description: When the JWT expires in ISO 8601 format (YYYY-MM-DDTHH:mm:SSZ)

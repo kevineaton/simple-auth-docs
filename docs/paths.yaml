@@ -1,0 +1,62 @@
+VerifyPath:
+  post: 
+    description: Verify a username and password
+    operationId: Verify
+    tags:
+      - Verify
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "models.yaml#/Credentials"
+    responses:
+      '200':
+        description: The information was valid
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    jwt:
+                      type: string
+                      description: A JWT that can be used against the validate andpoint
+      '400':
+        $ref: "index.yaml#/components/responses/400Response"
+      '401':
+        $ref: "index.yaml#/components/responses/401Response"
+      '403':
+        $ref: "index.yaml#/components/responses/403Response"
+
+ValidatePath:
+  post: 
+    description: Validate a JWT is still acceptable. Looks at the token for correctness and expiration.
+    operationId: Validate
+    tags:
+      - Validate
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "models.yaml#/ValidateBody"
+    responses:
+      '200':
+        description: The JWT was valid
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  $ref: "models.yaml#/ValidateResponse"
+      '400':
+        $ref: "index.yaml#/components/responses/400Response"
+      '401':
+        $ref: "index.yaml#/components/responses/401Response"
+      '403':
+        $ref: "index.yaml#/components/responses/403Response"

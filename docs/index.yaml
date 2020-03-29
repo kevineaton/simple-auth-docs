@@ -1,0 +1,90 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Simple Auth Service
+  description: |
+    
+
+  contact: 
+    name: Kevin Eaton
+    email: kevinhowardeaton@gmail.com
+    url: https://www.kevineaton.net
+
+tags:
+  $ref: "tags.yaml#/Tags"
+
+paths:
+  /verify:
+    $ref: "paths.yaml#/VerifyPath"
+  /validate:
+    $ref: "paths.yaml#/ValidatePath"
+
+
+components:
+  
+  responses:
+    400Response:
+      description: Invalid request, typically due to missing or malformed parameters or body
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: The nature of the error
+              code:
+                type: string
+                description: A system-specific error code
+    401Response:
+      description: Not authorized, perhaps due to a missing JWT or API key
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: The nature of the error
+              code:
+                type: string
+                description: A system-specific error code
+    403Response:
+      description: Not allowed
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: The nature of the error
+              code:
+                type: string
+                description: A system-specific error code
+    404Response:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: The nature of the error
+              code:
+                type: string
+                description: A system-specific error code
+    409Response:
+      description: Conflict or already exists
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: The nature of the error
+              code:
+                type: string
+                description: A system-specific error code

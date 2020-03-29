@@ -1,0 +1,26 @@
+{
+  "name": "simple-auth-docs",
+  "version": "1.0.0",
+  "description": "The Open API docs for Simple Auth",
+  "main": "index.js",
+  "author": "Kevin Eaton",
+  "license": "MIT",
+  "devDependencies": {
+    "api-spec-converter": "^2.11.0",
+    "speccy": "^0.11.0"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "lint": "node ./node_modules/speccy/speccy.js lint docs/index.yaml",
+    "combine": "node ./node_modules/speccy/speccy.js resolve -o docs/combined.yaml docs/index.yaml",
+    "preview": "npm run combine && node ./node_modules/speccy/speccy.js serve docs/combined.yaml",
+    "generate": "./node_modules/api-spec-converter/bin/api-spec-converter -f openapi_3 -t openapi_3 -s json docs/combined.yaml > api.json",
+    "build": "npm run combine && npm run generate && cp api.json build/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevineaton/simple-auth-docs.git"
+  }
+}
