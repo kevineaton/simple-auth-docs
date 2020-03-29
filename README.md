@@ -4,6 +4,8 @@ Simple Auth is a stupidly simple authentication mechanism that was built to serv
 
 These docs were written according to the Open API Specification 3.
 
+You can view the current docs at [https://docs.simpleauth.kevineaton.net/](https://docs.simpleauth.kevineaton.net/).
+
 ## Building
 
 All of the documentation exists in the `docs` folder in YAML format. Checkout the repo, run `npm install`, and then you can use the following commands:
